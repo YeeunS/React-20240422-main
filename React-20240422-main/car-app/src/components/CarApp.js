@@ -31,6 +31,9 @@ shouldComponentUpdate:
     why: to decide whether to proceed the render proceess
     how: by comparing old state/props with the new state/props, conditionally returning boolean
 
+PureComponent: 
+
+
 by default parent rendering will trigger child rendering
 
 toyota: dom render, render method: called
