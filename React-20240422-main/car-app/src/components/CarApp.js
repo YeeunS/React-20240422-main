@@ -29,7 +29,7 @@ from child to parent: callback
 shouldComponentUpdate:
     what: lifecycle method of react class component
     why: to decide whether to proceed the render proceess
-    how: by returning boolean
+    how: by comparing old state/props with the new state/props, conditionally returning boolean
 
 by default parent rendering will trigger child rendering
 
@@ -106,5 +106,5 @@ export default class CarApp extends Component {
 
 //create virtual dom(newer ver) based the jsx
 //diffing (old)
-//reconciliation
+//reconciliation (based on diffing algorithm)
 //componentDidUpdate

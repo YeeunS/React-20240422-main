@@ -9,7 +9,7 @@ export default class Car extends Component {
         <div>toyota</div>
         <div>{item.brand}</div>
         <div>{item.number}</div>
-        <SellButton handleSellCar={() => handleSellCar(item.id)} />
+        <SellButton handleSellCar={handleSellCar} />
       </div>
     );
   }
