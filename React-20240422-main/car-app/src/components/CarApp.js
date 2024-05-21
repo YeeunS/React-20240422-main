@@ -26,6 +26,17 @@ one way data flow: prop from parents to child
                    lifting the component to share to up
 from child to parent: callback
 
+shouldComponentUpdate:
+    what: lifecycle method of react class component
+    why: to decide whether to proceed the render proceess
+    how: by returning boolean
+
+by default parent rendering will trigger child rendering
+
+toyota: dom render, render method: called
+ford: dom not render, render method: called
+mercedez: dom not render, render method: called
+
 */
 export default class CarApp extends Component {
   constructor(props) {
@@ -67,6 +78,11 @@ export default class CarApp extends Component {
     });
   };
 
+  shouldComponentUpdate(nextProps, nextState) {
+    console.log("SCU", nextState, this.state); // this.state is the old state
+    return false;
+  }
+
   render() {
     const totalQuantity = this.state.cars.reduce((acc, cur) => {
       return acc + cur.number;
@@ -87,3 +103,8 @@ export default class CarApp extends Component {
     );
   }
 }
+
+//create virtual dom(newer ver) based the jsx
+//diffing (old)
+//reconciliation
+//componentDidUpdate
