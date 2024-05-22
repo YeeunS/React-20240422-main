@@ -1,15 +1,9 @@
 import React, { Component } from "react";
 
-// this is just an implementation of PureComponent class logic.
-// To see fully functioning, App.js has to be implenented aligned with it,
-// but I'll leave it to check my understanding by myself.
-
-export class PureComponent extends Component {
+export default class PureComponent extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      count: 0, // Initialize state with a count
-    };
+    this.state = {};
   }
 
   shouldComponentUpdate(nextProps, nextState) {
@@ -18,38 +12,22 @@ export class PureComponent extends Component {
     nextProps ??= {};
     this.props ??= {};
 
-    const isStateEqual = Object.keys(nextState).every(
-      (key) => nextState[key] === this.state[key]
-    );
+    const isStateEqual =
+      Object.keys(nextState).every(
+        (key) => nextState[key] === this.state[key]
+      ) &&
+      Object.keys(this.state).every((key) => nextState.hasOwnProperty(key));
 
-    const isPropsEqual = Object.keys(nextProps).every(
-      (key) => nextProps[key] === this.props[key]
-    );
+    const isPropsEqual =
+      Object.keys(nextProps).every(
+        (key) => nextProps[key] === this.props[key]
+      ) &&
+      Object.keys(this.props).every((key) => nextProps.hasOwnProperty(key));
 
-    return !(isStateEqual && isPropsEqual);
+    return !(isPropsEqual && isStateEqual);
   }
-
-  incrementCount = () => {
-    this.setState((prevState) => ({ count: prevState.count + 1 }));
-  };
 
   render() {
-    const { title, content, items } = this.props;
-    const { count } = this.state;
-
-    return (
-      <div>
-        <h1>{title}</h1>
-        <p>{content}</p>
-        <p>Count: {count}</p>
-        <button onClick={this.incrementCount}>Increment Count</button>
-
-        <ul>
-          {items && items.map((item, index) => <li key={index}>{item}</li>)}
-        </ul>
-      </div>
-    );
+    return <div>Pure Component</div>;
   }
 }
-
-export default PureComponent;
