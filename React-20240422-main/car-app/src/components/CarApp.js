@@ -42,31 +42,50 @@ mercedez: dom not render, render method: called
 
 */
 export default class CarApp extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      cars: [
-        {
-          brand: "toyota",
-          number: 10,
-          id: 1,
-        },
-        {
-          brand: "ford",
-          number: 20,
-          id: 2,
-        },
-        {
-          brand: "mercedez",
-          number: 30,
-          id: 3,
-        },
-      ],
-    };
+  /*   constructor(props) {
+      super(props);
+      this.state = {
+          cars: [
+              {
+                  brand: "toyota",
+                  number: 10,
+                  id: 1,
+              },
+              {
+                  brand: "ford",
+                  number: 20,
+                  id: 2,
+              },
+              {
+                  brand: "mercedes",
+                  number: 30,
+                  id: 3,
+              },
+          ],
+      };
   }
+*/
 
+  state = {
+    cars: [
+      {
+        brand: "toyota",
+        number: 10,
+        id: 1,
+      },
+      {
+        brand: "ford",
+        number: 20,
+        id: 2,
+      },
+      {
+        brand: "mercedes",
+        number: 30,
+        id: 3,
+      },
+    ],
+  };
   handleSellCar = (id) => {
-    // update state
     this.setState({
       cars: this.state.cars.map((item) => {
         if (item.id === id) {
@@ -79,35 +98,38 @@ export default class CarApp extends Component {
         }
       }),
     });
-  };
 
+    console.log("state", this.state);
+  };
+  /* 
   shouldComponentUpdate(nextProps, nextState) {
-    console.log("SCU", nextState, this.state); // this.state is the old state
-    return false;
-  }
+      console.log("SCU", nextState, this.state);
+      return true;
+  } */
 
   render() {
     const totalQuantity = this.state.cars.reduce((acc, cur) => {
       return acc + cur.number;
     }, 0);
+
     return (
       <div className="car-app">
         <TotalQuantity totalQuantity={totalQuantity} />
         <div className="cars-container">
-          {this.state.cars.map((item) => {
+          {this.state.cars.map((item) => (
             <Car
               key={item.id}
               item={item}
-              handleSellCar={this.handleSellCar}
-            />;
-          })}
+              handleSellCar={() => this.handleSellCar(item.id)}
+            />
+          ))}
         </div>
       </div>
     );
   }
-}
 
-//create virtual dom(newer ver) based the jsx
-//diffing (old)
-//reconciliation (based on diffing algorithm)
-//componentDidUpdate
+  //create virtual dom(newer ver) based the jsx
+  //diffing (old)
+  //reconciliation (based on diffing algorithm)
+  //componentDidUpdate
+}
