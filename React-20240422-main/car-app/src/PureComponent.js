@@ -1,5 +1,9 @@
 import React, { Component } from "react";
 
+// this is just an implementation of PureComponent class logic.
+// To see fully functioning, App.js has to be implenented aligned with it,
+// but I'll leave it to check my understanding by myself.
+
 export class PureComponent extends Component {
   constructor(props) {
     super(props);
