@@ -17,15 +17,29 @@ ecmascript: es5, es6(const, let, arrow function, destructuring, promise, class, 
 // It doesn't add new functionality to the language but provides an alternative syntax that is more convenient and often more readable.
 // babel:
 // bundler: webpack, turbopack
+//  minimization, uglify
 
-const App = () => {
-  return React.createElement(
-    "div",
-    { id: "test" },
-    React.createElement("b", null, "hello")
-  );
-  // <div><b>hello</b></div>;
-};
+//code(jsx, es6) => babel => code(es5, without jsx) => webpack => code(bundle into single file)
+
+import App from "./App";
+import React from "react";
+import ReactDOM from "react-dom/client";
+
+// const App = () => {
+//     return (
+//         <div>
+//             <b>hello</b>
+//         </div>
+//     ); /* React.createElement(
+//         "div",
+//         { id: "test" },
+//         React.createElement("b", null, "hello")
+//     ); */
+//     /*
+//     <div>
+//         <b>hello</b>
+//     </div>; */
+// };
 
 const root = ReactDOM.createRoot(document.getElementById("root")); // this is dom element
 // root.render(React.createElement("div", { id: "test" }));
