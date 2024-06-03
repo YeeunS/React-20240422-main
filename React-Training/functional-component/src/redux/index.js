@@ -1,4 +1,5 @@
-import { combineReducers, createStore } from "redux";
+import { combineReducers, createStore, applyMiddleware } from "redux";
+import { thunk } from "redux-thunk";
 
 const carsInitialValue = [
   {
@@ -52,7 +53,18 @@ const rootReducer = combineReducers({
   cars: carsReducer,
 });
 
+export async function Add(disptch, getState) {
+  await mockCountAPI.addCount();
+  dispatchEvent({ type: "ADD" });
+}
+
+export async function Minus(disptch, getState) {
+  await mockCountAPI.minusCount();
+  dispatchEvent({ type: "MINUS" });
+}
+
 // homework: write your own createStore()
-export const store = createStore(rootReducer);
+// export const store = createStore(rootReducer);
+export const store = createStore(rootReducer, applyMiddleware(thunk));
 // initilize store
 // returns a store object -> dispatch, getState, subscribe, replaceReducer(optional)
