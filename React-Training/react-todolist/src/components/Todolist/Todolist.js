@@ -252,8 +252,8 @@ export default class Todolist extends Component {
   }
 }
 
-const person = { name: "adam", cars: ["toyota", "bmw"] };
-const newPerson = { ...person, cars: [...person.cars, "mercedez"] };
+// const person = { name: "adam", cars: ["toyota", "bmw"] };
+// const newPerson = { ...person, cars: [...person.cars, "mercedez"] };
 //mutating
 //shallow copy, deep copy
 /*const personCopy = { ...person }; // wrapper object reference
