@@ -3,6 +3,7 @@ import CarProvider, { useCars } from "./CarContext";
 
 const CarApp = () => {
   const { cars } = useCars();
+
   return (
     <div>
       <div>CarApp</div>
@@ -23,7 +24,7 @@ const TotalQuantity = () => {
 };
 
 const Car = ({ car }) => {
-  console.log(car);
+  // console.log(car);
   return (
     <div>
       <CarInfo car={car} />
@@ -43,6 +44,7 @@ const CarInfo = ({ car }) => {
 
 const SellButton = ({ id }) => {
   const { handleSellCar } = useCars();
+
   return <button onClick={() => handleSellCar(id)}>Sell</button>;
 };
 

@@ -1,11 +1,11 @@
 import React, { createContext, useContext, useReducer, useState } from "react";
 
 // context api
-// to pass data through the component tree, to centralize the states
+// to pass data throught the component tree, to centralize the states
 
 const CounterContext = createContext();
 
-console.log(CounterContext);
+// console.log(CounterContext);
 
 // action : {type: "XXX"}
 function reducer(state, action) {
