@@ -1,0 +1,11 @@
+{
+  "name": "my-redux-project",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "live-server --open=index.html"
+  },
+  "devDependencies": {
+    "live-server": "^1.2.1"
+  }
+}
