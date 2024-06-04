@@ -90,3 +90,20 @@ function toNumberArr(x: number, y: number): number[] {
 function toStringArr(x: string, y: string): string[] {
   return [x, y];
 }
+
+function toArr<T>(x: T, y: T): T[] {
+  return [x, y];
+}
+
+toArr<number>(1, 2);
+
+// if you want y is different type
+function toArr2<T, X>(x: T, y: X): [T, X] {
+  return [x, y];
+}
+
+toArr2<number, string>(1, "2");
+
+// tuple (something similar to array, but you don't know the number of it and type)
+let tuple: [number, string, () => void] = [1, "2", () => {}];
+tuple[2];
