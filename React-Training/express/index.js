@@ -1,8 +1,15 @@
 const express = require("express");
+const postRoutes = require("./routes/postRoutes");
+const authRoutes = require("./routes/authRoutes");
+const dotenv = require("dotenv");
 const app = express();
 const port = 3000;
 
+dotenv.config();
+
 app.use(express.json());
+app.use("/posts", postRoutes);
+app.use("/auth", authRoutes);
 
 // global middleware
 function middleware1(req, res, next) {
